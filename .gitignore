@@ -14,3 +14,5 @@ uv.lock
 .python-version
 .env
 pyproject.toml
+!uv.lock
+!pyproject.toml

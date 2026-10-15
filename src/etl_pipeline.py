@@ -43,6 +43,7 @@ def run_pipeline():
             CAST(customer_id AS VARCHAR) AS customer_id,
             'Customer_' || SUBSTR(CAST(customer_id AS VARCHAR), 1, 5) AS customer_name,
             LOWER(TRIM(customer_city)) AS country,
+            UPPER(TRIM(customer_state)) AS state,
             CURRENT_DATE AS signup_date
         FROM bronze_customers
         WHERE customer_id IS NOT NULL;
@@ -77,6 +78,7 @@ def run_pipeline():
             customer_id,
             customer_name,
             country,
+            state,
             signup_date
         FROM silver_customers;
     """)
